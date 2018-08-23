@@ -2,3 +2,8 @@ desc "Hello! This is rake task!"
 task :hello do
     puts "Hello Rake World"
 end
+
+desc "今日も一日がんばるぞい"
+task :ganbaru do
+    puts "今日も一日がんばるぞい！"
+end
