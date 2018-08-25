@@ -17,11 +17,20 @@ class Book < ActiveRecord::Base
         end
     end
 
+    def high_price?
+        self.price >= 5000
+    end
+    
     before_validation :replace_vim
+    before_validation :if => :high_price? do |book|
+        puts "お前そんな高い本買ったの？"
+    end
 
     def replace_vim
         self.name = self.name.gsub(/emacs/) do
             "vim"
         end
     end
+
+
 end
