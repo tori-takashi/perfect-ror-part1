@@ -16,4 +16,12 @@ class Book < ActiveRecord::Base
             book.errors[:name] << "そんな本があるはずありません"
         end
     end
+
+    before_validation :replace_vim
+
+    def replace_vim
+        self.name = self.name.gsub(/emacs/) do
+            "vim"
+        end
+    end
 end
