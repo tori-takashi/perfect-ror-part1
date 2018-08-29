@@ -1,4 +1,6 @@
 class Book < ActiveRecord::Base
+    enum status: [:reservation, :now_on_sale, :end_of_print]
+
     scope :costly, -> { where("price > ?", 3000)}
     scope :written_about, -> (theme){ where("name like '#{theme}'")}
     default_scope -> { order("price DESC")}
@@ -31,6 +33,5 @@ class Book < ActiveRecord::Base
             "vim"
         end
     end
-
 
 end
