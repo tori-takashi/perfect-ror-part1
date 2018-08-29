@@ -1,0 +1,1 @@
+json.name_with_id "#{@book.id} - #{@book.name}"
